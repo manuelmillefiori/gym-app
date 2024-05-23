@@ -2,37 +2,98 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.personList {
+  width: 60%;
+  margin: auto;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.personList thead th,
+.personList tbody td {
+  text-align: center;
+  padding: 10px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.personList tbody tr {
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.personList tbody tr:hover {
+  background-color: #f0f0f0;
+}
+
+.personList tbody tr.active {
+  background-color: #d3d3d3; /* Colore di sfondo per la riga attiva */
+}
+
+.buttonList {
+  text-align: center;
+  width: 60%;
+  margin: auto;
+}
+
+.buttonList button {
+  margin: 1rem 1rem 1.5rem 1.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: rgb(27, 27, 27);
   color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
+.buttonList button:hover {
+  background-color: rgb(68, 68, 68);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.buttonList button:active {
+  background-color: rgb(95, 95, 95);
+}
+
+/* Stile per il modulo di modifica */
+.editForm {
+  width: 60%;
+  margin: auto;
+  text-align: left;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #f9f9f9;
+}
+
+.editForm h2 {
+  text-align: center;
+}
+
+.editForm input {
+  width: calc(100% - 2rem);
+  padding: 0.5rem;
+  margin: 0.5rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+}
+
+.editForm button {
+  display: block;
+  width: calc(100% - 2rem);
+  margin: 1rem auto;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.3rem;
+  background-color: rgb(27, 27, 27);
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.editForm button:hover {
+  background-color: rgb(68, 68, 68);
+}
+
+.editForm button:active {
+  background-color: rgb(95, 95, 95);
 }
