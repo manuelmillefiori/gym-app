@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import './App.css';
+import '../css/members-list.css';
 
 // Definizione classe Persona
 class Person {
@@ -12,7 +12,7 @@ class Person {
   }
 }
 
-function App() {
+function MembersList() {
   // Stato per memorizzare la lista delle persone
   const [people, setPeople] = useState([
     new Person('Mario', 'Rossi', 'mario@example.com', 30, 'Basic'),
@@ -90,7 +90,7 @@ function App() {
 
   return (
     <>
-      <h1 className="App">Lista di persone</h1>
+      <h1 className="MembersList">Lista di persone</h1>
       {/* Componente per visualizzare la lista delle persone */}
       <PersonList people={people} setLastRow={setLastRow} lastRow={lastRow} />
       <div className="buttonList">
@@ -184,4 +184,4 @@ function PersonList({ people, setLastRow, lastRow }) {
   );
 }
 
-export default App;
+export default MembersList;

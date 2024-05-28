@@ -1,16 +1,19 @@
-.App {
+.MembersList {
   text-align: center;
+  margin: 2rem 0;
 }
 
 .personList {
   width: 60%;
-  margin: auto;
+  margin: 2rem auto;
+  border-collapse: collapse;
 }
 
 .personList thead th,
 .personList tbody td {
   text-align: center;
   padding: 10px;
+  border: 1px solid #ccc; /* Aggiunta di bordi per una migliore visibilità */
 }
 
 .personList tbody tr {
@@ -29,7 +32,7 @@
 .buttonList {
   text-align: center;
   width: 60%;
-  margin: auto;
+  margin: 1rem auto;
 }
 
 .buttonList button {
@@ -55,7 +58,7 @@
 /* Stile per il modulo di modifica */
 .editForm {
   width: 60%;
-  margin: auto;
+  margin: 2rem auto;
   text-align: left;
   border: 1px solid #ccc;
   padding: 1rem;
