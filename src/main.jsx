@@ -9,11 +9,13 @@ import './css/index.css'
 // Routes
 import Home from "./routes/home";
 import MembersList from "./routes/members-list";
+import NotFoundPage from './routes/not-found-page';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
+    errorElement: <NotFoundPage />
   },
   {
     path: "/members",
