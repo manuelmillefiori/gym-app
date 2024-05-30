@@ -1,0 +1,48 @@
+/* Navbar styling */
+.navbar {
+   width: 100%;
+   padding: 10px 20px;
+   background-color: #333;
+   color: white;
+   display: flex;
+   justify-content: center;
+   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.navList {
+   list-style-type: none;
+   padding: 0;
+   margin: 0;
+   display: flex;
+}
+
+.navListItem {
+   margin-right: 20px;
+}
+
+.navListItem a {
+   text-decoration: none;
+   color: white;
+   font-size: 18px;
+   transition: color 0.2s;
+}
+
+.navListItem a:hover {
+   color: #bbb;
+}
+
+/* Main content styling */
+.mainContent {
+   margin-top: 40px;
+   margin-left: 0px; /* Centra il contenuto da sinistra a destra */
+   text-align: center; /* Allinea il testo al centro */
+   background-color: #fff;
+   min-height: calc(100vh - 50px); /* Altezza adattata per la barra di navigazione */
+}
+
+h1 {
+   color: #333;
+}
+
+
+

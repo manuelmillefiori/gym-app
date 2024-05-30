@@ -1,0 +1,28 @@
+{
+  "members": [
+    {
+      "id": 1,
+      "name": "Mario",
+      "surname": "Rossi",
+      "email": "mario@example.com",
+      "age": 30,
+      "membershipType": "Basic"
+    },
+    {
+      "id": 2,
+      "name": "Luigi",
+      "surname": "Verdi",
+      "email": "luigi@example.com",
+      "age": 25,
+      "membershipType": "Premium"
+    },
+    {
+      "id": 3,
+      "name": "Anna",
+      "surname": "Bianchi",
+      "email": "anna@example.com",
+      "age": 28,
+      "membershipType": "Basic"
+    }
+  ]
+}
