@@ -42,22 +42,30 @@ function MembersList() {
       updatedPeople.splice(lastRow, 1); // Rimuove la persona all'indice lastRow
       setPeople(updatedPeople); // Aggiorna lo stato con la nuova lista
       setLastRow(null); // Resetta lastRow
+      setIsEditing(false); // Disabilito la modalità di modifica
     }
   };
 
   // Funzione per avviare la modalità modifica per una persona selezionata
   const startEditPerson = () => {
-    if (lastRow !== null) {
-      const personToEdit = people[lastRow]; // Ottiene la persona da modificare
-      // Imposta i dati del modulo di modifica con i dati della persona selezionata
-      setEditForm({
-        name: personToEdit.name,
-        surname: personToEdit.surname,
-        email: personToEdit.email,
-        age: personToEdit.age,
-        membershipType: personToEdit.membershipType
-      });
-      setIsEditing(true); // Attiva la modalità modifica
+    if (isEditing) {
+      // Al secondo click del pulsante disabilito la modalità di modifica
+      setIsEditing(false);
+    }
+    else {
+      if (lastRow !== null) {
+        const personToEdit = people[lastRow]; // Ottiene la persona da modificare
+
+        // Imposta i dati del modulo di modifica con i dati della persona selezionata
+        setEditForm({
+          name: personToEdit.name,
+          surname: personToEdit.surname,
+          email: personToEdit.email,
+          age: personToEdit.age,
+          membershipType: personToEdit.membershipType
+        });
+        setIsEditing(true); // Attiva la modalità modifica
+      }
     }
   };
 
@@ -73,7 +81,9 @@ function MembersList() {
   // Funzione per salvare le modifiche apportate alla persona
   const saveEditPerson = () => {
     if (lastRow !== null) {
-      const updatedPeople = [...people]; // Crea una copia della lista delle persone
+      // Crea una copia della lista delle persone
+      const updatedPeople = [...people];
+
       // Aggiorna la persona all'indice lastRow con i nuovi dati dal modulo di modifica
       updatedPeople[lastRow] = new Person(
         editForm.name,
@@ -92,7 +102,7 @@ function MembersList() {
     <>
       <h1 className="MembersList">Lista di persone</h1>
       {/* Componente per visualizzare la lista delle persone */}
-      <PersonList people={people} setLastRow={setLastRow} lastRow={lastRow} />
+      <PersonList people={people} setLastRow={setLastRow} lastRow={lastRow} isEditing={isEditing} setIsEditing={setIsEditing} setEditForm={setEditForm} />
       <div className="buttonList">
         <button onClick={startEditPerson}>Edit</button>
         <button onClick={deletePerson}>Delete</button>
@@ -144,13 +154,29 @@ function MembersList() {
 }
 
 // Componente per visualizzare la lista delle persone in una tabella
-function PersonList({ people, setLastRow, lastRow }) {
+function PersonList({ people, setLastRow, lastRow , isEditing, setIsEditing, setEditForm}) {
   // Funzione per gestire il click su una riga della tabella
   function handleRowClick(index) {
     if (lastRow === index) {
       setLastRow(null); // Deseleziona la riga se è già selezionata
-    } else {
+      setIsEditing(false); // Disattivo la modalità di modifica
+    }
+    else {
       setLastRow(index); // Seleziona la riga
+
+      // Verifico se l'utente è in modalità modifica
+      if (isEditing) {
+        const personToEdit = people[index]; // Ottiene la persona da modificare
+
+        // Imposta i dati del modulo di modifica con i dati della persona selezionata
+        setEditForm({
+          name: personToEdit.name,
+          surname: personToEdit.surname,
+          email: personToEdit.email,
+          age: personToEdit.age,
+          membershipType: personToEdit.membershipType
+        });
+      }
     }
   }
 
@@ -182,6 +208,10 @@ function PersonList({ people, setLastRow, lastRow }) {
       </tbody>
     </table>
   );
+}
+
+function PersonForm() {
+  
 }
 
 export default MembersList;
