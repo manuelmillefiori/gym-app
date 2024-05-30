@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { NavLink, Outlet } from "react-router-dom";
+import axios from "axios";
 import styles from "../css/members.module.css"; // Importo il modulo CSS
 
 // Member class definition
@@ -19,12 +20,36 @@ export default function Members() {
    const [members, setMembers] = useState([]);
    const [searchTerm, setSearchTerm] = useState("");
 
+   // Old Style
+   /*
    useEffect(() => {
       fetch('http://localhost:5000/members')
         .then(response => response.json())
         .then(data => setMembers(data))
         .catch(error => console.error('Error fetching members:', error));
-    }, []);
+   }, []);
+   */
+
+   useEffect(() => {
+      const fetchData = async () => {
+         const url = "http://localhost:5000/members";
+
+         try {
+            // Wait the response
+            const response = await axios.get(url);
+
+            // Set all the members obtained
+            setMembers(response.data);
+         } catch (error) {
+            // DEBUG
+            // Print the error
+            console.error('Error:', error);
+         }
+      };
+
+      fetchData();
+   }, []);
+
 
    const handleSearch = (event) => {
       setSearchTerm(event.target.value);
@@ -38,6 +63,7 @@ export default function Members() {
       <div className={styles.container}>
          <div className={styles.sidebar}>
             <h1 className={styles.title}>Gym App</h1>
+            <NavLink to="/members/new">+</NavLink>
             <input 
                type="text"
                placeholder="Search members..."

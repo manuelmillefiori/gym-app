@@ -26,12 +26,12 @@ const router = createBrowserRouter([
         path: "/members/:id",
         element: <MemberDetails />
       },
+      {
+        // New member
+        path: "/members/new",
+        element: <NewMember />,
+      },
     ]
-  },
-  {
-    // New member
-    path: "/members/new",
-    element: <NewMember />,
   },
   {
     path: "/members/:id/edit",
