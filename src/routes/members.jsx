@@ -1,24 +1,15 @@
 import { useState, useEffect } from "react";
-import { NavLink, Outlet } from "react-router-dom";
+import { NavLink, Outlet, useLocation } from "react-router-dom";
 import axios from "axios";
 import styles from "../css/members.module.css"; // Importo il modulo CSS
-
-// Member class definition
-class Member {
-   constructor(id, name, surname, email, age, membershipType) {
-      this.id = id;
-      this.name = name;
-      this.surname = surname;
-      this.email = email;
-      this.age = age;
-      this.membershipType = membershipType;
-   }
-}
 
 export default function Members() {
    // State to memorize members details
    const [members, setMembers] = useState([]);
    const [searchTerm, setSearchTerm] = useState("");
+
+   // Location to trigger the members refresh
+   const location = useLocation(); // to check location state
 
    // Old Style
    /*
@@ -30,6 +21,8 @@ export default function Members() {
    }, []);
    */
 
+   // Get data from server
+   // Every time location changes
    useEffect(() => {
       const fetchData = async () => {
          const url = "http://localhost:5000/members";
@@ -48,7 +41,7 @@ export default function Members() {
       };
 
       fetchData();
-   }, []);
+   }, [location]);
 
 
    const handleSearch = (event) => {
@@ -63,8 +56,8 @@ export default function Members() {
       <div className={styles.container}>
          <div className={styles.sidebar}>
             <h1 className={styles.title}>Gym App</h1>
-            <NavLink to="/members/new">+</NavLink>
-            <input 
+            <NavLink to="/members/new" className={styles.addButton}>+</NavLink>
+            <input
                type="text"
                placeholder="Search members..."
                value={searchTerm}

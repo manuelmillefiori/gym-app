@@ -1,7 +1,7 @@
 {
   "members": [
     {
-      "id": 1,
+      "id": "1",
       "name": "Mario",
       "surname": "Rossi",
       "email": "mario@example.com",
@@ -9,7 +9,7 @@
       "membershipType": "Basic"
     },
     {
-      "id": 2,
+      "id": "2",
       "name": "Luigi",
       "surname": "Verdi",
       "email": "luigi@example.com",
@@ -17,12 +17,52 @@
       "membershipType": "Premium"
     },
     {
-      "id": 3,
+      "id": "3",
       "name": "Anna",
       "surname": "Bianchi",
       "email": "anna@example.com",
       "age": 28,
       "membershipType": "Basic"
+    },
+    {
+      "id": "a50c",
+      "name": "Cornino",
+      "surname": "Gennari",
+      "email": "Poldo@gmail.com",
+      "age": "18",
+      "membershipType": "Premium"
+    },
+    {
+      "id": "eb68",
+      "name": "Marcello",
+      "surname": "Zeppi",
+      "email": "marcellozeppi@gmail.com",
+      "age": "240",
+      "membershipType": "Premium"
+    },
+    {
+      "id": "9035",
+      "name": "Poldo",
+      "surname": "Marco",
+      "email": "forti@gmail.com",
+      "age": "40",
+      "membershipType": "Basic"
+    },
+    {
+      "id": "f293",
+      "name": "awd",
+      "surname": "wdawd",
+      "email": "dawawdd@gmail.com",
+      "age": "4",
+      "membershipType": "Basic"
+    },
+    {
+      "id": "d912",
+      "name": "Giuseppe",
+      "surname": "Ercolino",
+      "email": "peppino@gmail.com",
+      "age": "800",
+      "membershipType": "Premium"
     }
   ]
 }
