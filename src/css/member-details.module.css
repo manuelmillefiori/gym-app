@@ -18,3 +18,72 @@
    font-size: 16px;
    margin-bottom: 8px;
 }
+
+/* member-details.module.css */
+
+.container {
+   /* Your existing styles */
+}
+
+.memberInfo {
+   /* Your existing styles */
+}
+
+.buttonContainer {
+   margin-top: 20px;
+   display: flex;
+   justify-content: center; /* Adjust as needed */
+}
+
+.deleteButton, .editButton {
+   margin-right: 10px;
+   padding: 10px 20px;
+   border: none;
+   cursor: pointer;
+}
+
+.deleteButton {
+   background-color: red;
+   color: white;
+}
+
+.editButton {
+   background-color: blue;
+   color: white;
+}
+
+.buttonContainer {
+   margin-top: 20px;
+   display: flex;
+   justify-content: center; /* Adjust as needed */
+}
+
+.deleteButton, .editButton {
+   margin-right: 10px;
+   padding: 10px 20px;
+   border: none;
+   cursor: pointer;
+}
+
+.deleteButton {
+   background-color: rgb(235, 0, 0);
+   transition: 200ms;
+   color: white;
+}
+
+.editButton {
+   background-color: rgb(0, 0, 223);
+   transition: 200ms;
+   color: white;
+}
+
+.deleteButton:hover {
+   background-color: rgb(172, 0, 0);
+   transition: 200ms;
+}
+
+.editButton:hover {
+   background-color: rgb(0, 0, 168);
+   transition: 200ms;
+}
+
