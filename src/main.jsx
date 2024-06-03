@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 import './css/index.css';
 
 // Routes
@@ -24,19 +25,20 @@ const router = createBrowserRouter([
       {
         // Members details
         path: "/members/:id",
-        element: <MemberDetails />
+        element: <MemberDetails />,
       },
       {
         // New member
         path: "/members/new",
         element: <NewMember />,
       },
+      {
+        // Edit member
+        path: "/members/:id/edit",
+        element: <EditMember />,
+      }
     ]
   },
-  {
-    path: "/members/:id/edit",
-    element: <EditMember />,
-  }
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(

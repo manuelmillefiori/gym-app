@@ -41,7 +41,7 @@ export default function MemberDetails() {
    };
 
    const handleEdit = () => {
-      // Handle edit logic, e.g., redirect to an edit form
+      navigate("/members/" + member.id + "/edit")
    };
 
    return (
@@ -52,7 +52,6 @@ export default function MemberDetails() {
                <p><b>Email:</b> {member.email}</p>
                <p><b>Age:</b> {member.age}</p>
                <p><b>Membership Type:</b> {member.membershipType}</p>
-               {/* Aggiungi altre proprietà del membro qui */}
             </div>
          ) : (
             null

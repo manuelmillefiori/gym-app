@@ -2,10 +2,10 @@
   "members": [
     {
       "id": "1",
-      "name": "Mario",
-      "surname": "Rossi",
+      "name": "Gennaro",
+      "surname": "Rossetti",
       "email": "mario@example.com",
-      "age": 30,
+      "age": "30",
       "membershipType": "Basic"
     },
     {
@@ -18,19 +18,11 @@
     },
     {
       "id": "3",
-      "name": "Anna",
+      "name": "Giorgio",
       "surname": "Bianchi",
       "email": "anna@example.com",
-      "age": 28,
+      "age": "28",
       "membershipType": "Basic"
-    },
-    {
-      "id": "a50c",
-      "name": "Cornino",
-      "surname": "Gennari",
-      "email": "Poldo@gmail.com",
-      "age": "18",
-      "membershipType": "Premium"
     },
     {
       "id": "d912",
