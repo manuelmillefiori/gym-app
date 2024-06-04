@@ -9,16 +9,8 @@
       "membershipType": "Basic"
     },
     {
-      "id": "2",
-      "name": "Luigi",
-      "surname": "Verdi",
-      "email": "luigi@example.com",
-      "age": 25,
-      "membershipType": "Premium"
-    },
-    {
       "id": "3",
-      "name": "Giorgio",
+      "name": "Marco",
       "surname": "Bianchi",
       "email": "anna@example.com",
       "age": "28",
@@ -31,6 +23,17 @@
       "email": "peppino@gmail.com",
       "age": "800",
       "membershipType": "Premium"
+    },
+    {
+      "id": "cee1",
+      "name": "Robin",
+      "surname": "Geppi",
+      "email": "robin@sample.it",
+      "age": "55",
+      "membershipType": "Basic"
     }
-  ]
+  ],
+  "profile": {
+    "name": "manuelmillefiori"
+  }
 }
