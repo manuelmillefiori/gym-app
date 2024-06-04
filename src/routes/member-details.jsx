@@ -13,7 +13,7 @@ export default function MemberDetails() {
    // Obtain the member at every member id change
    useEffect(() => {
       const fetchData = async () => {
-         const url = "http://localhost:5000/members/" + params.id;
+         const url = "https://my-json-server.typicode.com/manuelmillefiori/gym-app/members/" + params.id;
 
          try {
             const response = await axios.get(url);
@@ -28,7 +28,7 @@ export default function MemberDetails() {
 
    // Handle the delete of the member
    const handleDelete = async () => {
-      const url = "http://localhost:5000/members/" + params.id;
+      const url = "https://my-json-server.typicode.com/manuelmillefiori/gym-app/members/" + params.id;
       try {
          // Request to delete
          await axios.delete(url);

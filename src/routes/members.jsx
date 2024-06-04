@@ -25,7 +25,7 @@ export default function Members() {
    // Every time location changes
    useEffect(() => {
       const fetchData = async () => {
-         const url = "http://localhost:5000/members";
+         const url = "https://my-json-server.typicode.com/manuelmillefiori/gym-app/members";
 
          try {
             // Wait the response

@@ -22,7 +22,7 @@ export default function NewMember() {
       
       // Send data to the server
       try {
-         const url = "http://localhost:5000/members";
+         const url = "https://my-json-server.typicode.com/manuelmillefiori/gym-app/members";
          const response = await axios.post(url, newMember);
          
          // Redirect to /members
