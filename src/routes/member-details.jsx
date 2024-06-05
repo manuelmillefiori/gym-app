@@ -49,10 +49,17 @@ export default function MemberDetails() {
       <div className={styles.container}>
          {member ? (
             <div className={styles.memberInfo}>
-               <h1>{member.name} {member.surname}</h1>
-               <p><b>Email:</b> {member.email}</p>
-               <p><b>Age:</b> {member.age}</p>
-               <p><b>Membership Type:</b> {member.membershipType}</p>
+               <h2 className={styles.titleForm}>{member.name} {member.surname}</h2>
+               <div className={styles.detailsContainer}>
+                  <div className={styles.imageContainer}>
+                     <img src={member.picture} alt="Member" className={styles.memberImage} />
+                  </div>
+                  <div className={styles.memberData}>
+                     <p><b>Email:</b> {member.email}</p>
+                     <p><b>Age:</b> {member.age}</p>
+                     <p><b>Membership Type:</b> {member.membershipType}</p>
+                  </div>
+               </div>
             </div>
          ) : (
             null

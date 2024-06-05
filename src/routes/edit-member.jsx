@@ -5,53 +5,38 @@ import axios from "axios";
 import styles from "../css/edit-member.module.css";
 
 export default function EditMember() {
-   // Obtain the params to get the member id
    const params = useParams();
-
-   // Handle to navigate
    const navigate = useNavigate();
 
    useEffect(() => {
       const fetchData = async () => {
-         // Compose the url
          const url = import.meta.env.VITE_PATH_REQ + "/members/" + params.id;
 
          try {
             const response = await axios.get(url);
-
-            // Save the member data
             const member = response.data;
-
-            // Obtain the ref at the form
             const editForm = document.getElementById("editForm");
-
-            // Set all the data
             editForm.name.value = member.name;
             editForm.surname.value = member.surname;
             editForm.email.value = member.email;
             editForm.age.value = member.age;
             editForm.membershipType.value = member.membershipType;
+            editForm.picture.value = member.picture; // Added line for picture
 
          } catch (error) {
             console.error('Error:', error);
          }
       };
 
-      // Fetch the member data
       fetchData();
    }, [params.id]);
 
-   // Lambda to send a req to edit the member data
    const handleSubmit = async (event) => {
-      // Stop from reloading the page
       event.preventDefault();
 
-      // Req to edit the member data
       try {
-         // Obtain the ref at the form
          const editForm = document.getElementById("editForm");
 
-         // Compose the member to update
          const member = {
             id: params.id,
             name: editForm.name.value,
@@ -59,64 +44,35 @@ export default function EditMember() {
             email: editForm.email.value,
             age: editForm.age.value,
             membershipType: editForm.membershipType.value,
+            picture: editForm.picture.value, // Added line for picture
          };
 
          const url = import.meta.env.VITE_PATH_REQ + "/members/" + member.id;
-         const response = await axios.put(url, member);
+         await axios.put(url, member);
          
-         // Redirect to /members/:id
          navigate("/members/" + member.id);
 
-         // Manage the errors
       } catch (error) {
-         console.error('Error adding member:', error);
+         console.error('Error editing member:', error);
       }
    };
 
    return (
       <div className={styles.container}>
-         <h1>Edit Member</h1>
+         <h2 className={styles.titleForm}>Edit Member</h2>
          <form id="editForm" onSubmit={handleSubmit} className={styles.form}>
-            <label>
-               Name:
-               <input
-                  name="name"
-                  type="text"
-                  required
-               />
-            </label>
-            <label>
-               Surname:
-               <input
-                  name="surname"
-                  type="text"
-                  required
-               />
-            </label>
-            <label>
-               Email:
-               <input
-                  name="email"
-                  type="email"
-                  required
-               />
-            </label>
-            <label>
-               Age:
-               <input
-                  name="age"
-                  type="number"
-                  required
-               />
-            </label>
-            <label>
-               Membership Type:
-               <input
-                  name="membershipType"
-                  type="text"
-                  required
-               />
-            </label>
+            <label>Name:</label>
+            <input name="name" type="text" required />
+            <label>Surname:</label>
+            <input name="surname" type="text" required />
+            <label>Email:</label>
+            <input name="email" type="email" required />
+            <label>Age:</label>
+            <input name="age" type="number" required />
+            <label>Membership Type:</label>
+            <input name="membershipType" type="text" required />
+            <label>Picture URL:</label> {/* Added label for picture */}
+            <input name="picture" type="text" required /> {/* Added input for picture */}
             <button type="submit">Edit Member</button>
          </form>
       </div>

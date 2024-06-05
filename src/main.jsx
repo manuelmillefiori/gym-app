@@ -15,13 +15,13 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Home />,
-    errorElement: <div>404 Not Found Page</div>
-  },
-  {
-    // Visualize members
-    path: "/members",
-    element: <Members />,
+    errorElement: <div>404 Not Found Page</div>,
     children: [
+      {
+        // Visualize members
+        path: "/members",
+        element: <Members />,
+      },
       {
         // Members details
         path: "/members/:id",

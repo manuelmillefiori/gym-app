@@ -1,19 +1,38 @@
-import React from 'react';
-import { Link } from "react-router-dom";
-import styles from "../css/home.module.css"; // Importa il file CSS come modulo
+import React from "react";
+import { NavLink, Outlet } from "react-router-dom";
+import styles from "../css/home.module.css";
 
 export default function Home() {
-   return (
-      <div>
-         <nav className={styles.navbar}>
+   return(
+      <div className={styles.container}>
+         <div className={styles.sidebar}>
+            <h2 className={styles.title}>Gym App</h2>
             <ul className={styles.navList}>
-               <li className={styles.navListItem}><Link to="/">Home</Link></li>
-               <li className={styles.navListItem}><Link to="/members">Members List</Link></li>
+               <li key="1" className={styles.navListItem}>
+                  <NavLink
+                  to="/"
+                  className={styles.memberLink}>
+                     Home
+                  </NavLink>
+               </li>
+               <li key="2" className={styles.navListItem}>
+                  <NavLink
+                  to="/members"
+                  className={styles.memberLink}>
+                     Members List
+                  </NavLink>
+               </li>
+               <li key="3" className={styles.navListItem}>
+                  <NavLink
+                  to="/members/new"
+                  className={styles.memberLink}>
+                     Add Members
+                  </NavLink>
+               </li>
             </ul>
-         </nav>
+         </div>
          <div className={styles.mainContent}>
-            <h1>Welcome to the Gym App</h1>
-            {/* Additional content for the home page */}
+            <Outlet />
          </div>
       </div>
    );

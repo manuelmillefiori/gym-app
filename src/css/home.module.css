@@ -1,29 +1,43 @@
-/* Navbar styling */
-.navbar {
-   width: 100%;
-   padding: 10px 20px;
+/* Sidebar styling */
+.sidebar {
+   width: 15rem;
+   padding: 0px;
    background-color: #333;
    color: white;
    display: flex;
-   justify-content: center;
-   box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+   flex-direction: column;
+   align-items: flex-start; /* Align items to the left */
+   position: fixed;
+   left: 0;
+   top: 0;
+   bottom: 0;
 }
 
 .navList {
    list-style-type: none;
    padding: 0;
-   margin: 0;
-   display: flex;
+   width: 100%;
+}
+
+h2 {
+   margin-top: 1.4rem;
+   margin-left: 1.4rem;
+   margin-bottom: 0rem;
+   margin-right: 1rem;
 }
 
 .navListItem {
-   margin-right: 20px;
+   padding: 1rem 1rem 1rem 1.4rem;
+}
+
+.navListItem:not(:last-child) {
+   border-bottom: 1px solid #444; /* Add border to create a line for all items except the last one */
 }
 
 .navListItem a {
    text-decoration: none;
    color: white;
-   font-size: 18px;
+   font-size: 1rem;
    transition: color 0.2s;
 }
 
@@ -33,16 +47,8 @@
 
 /* Main content styling */
 .mainContent {
-   margin-top: 40px;
-   margin-left: 0px; /* Centra il contenuto da sinistra a destra */
-   text-align: center; /* Allinea il testo al centro */
-   background-color: #fff;
-   min-height: calc(100vh - 50px); /* Altezza adattata per la barra di navigazione */
+   flex-grow: 1;
+   padding: 40px;
+   background-color: #f2f2f2;
+   margin-left: 15rem; /* space for sidebar */
 }
-
-h1 {
-   color: #333;
-}
-
-
-

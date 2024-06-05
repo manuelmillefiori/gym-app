@@ -1,48 +1,47 @@
 .container {
-   width: 100%;
-   max-width: 500px;
-   margin: 0 auto;
-   padding: 20px;
+   width: 25rem; /* 400px / 16px (dimensione predefinita del carattere) */
+   padding: 1.25rem; /* 20px / 16px */
    background-color: #f9f9f9;
-   border-radius: 8px;
-   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+   border-radius: 0.5rem; /* 8px / 16px */
+   box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* 10px / 16px */
+   margin: auto;
 }
 
-h1 {
+.titleForm {
    text-align: center;
-   margin-bottom: 20px;
+   color: #000;
+   margin-bottom: 1.25rem; /* 20px / 16px */
 }
 
-.form {
-   display: flex;
-   flex-direction: column;
+form {
+   margin-top: 1.25rem; /* 20px / 16px */
 }
 
 label {
-   margin-bottom: 10px;
-   font-weight: bold;
+   display: block;
+   margin-bottom: 0.1rem;
+   color: #000;
 }
 
 input {
-   padding: 8px;
-   margin-top: 5px;
-   margin-bottom: 20px;
-   border: 1px solid #ccc;
-   border-radius: 4px;
    width: 100%;
+   padding: 0.625rem; /* 10px / 16px */
+   margin-bottom: 0.9375rem; /* 15px / 16px */
+   border: 0.0625rem solid #ccc; /* 1px / 16px */
+   border-radius: 0.25rem; /* 4px / 16px */
+   box-sizing: border-box;
 }
 
 button {
-   padding: 10px 15px;
-   background-color: #363636;
-   color: white;
+   width: 100%;
+   padding: 0.625rem; /* 10px / 16px */
+   background-color: #333333;
+   color: #fff;
    border: none;
-   border-radius: 4px;
+   border-radius: 0.25rem; /* 4px / 16px */
    cursor: pointer;
-   transition-duration: 300ms;
 }
 
 button:hover {
-   background-color: #1b1b1b;
-   transition-duration: 300ms;
+   background-color: #202020;
 }
