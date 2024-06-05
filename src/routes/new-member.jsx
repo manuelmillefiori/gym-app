@@ -1,7 +1,8 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import styles from "../css/new-member.module.css"; // Importo il modulo CSS
+
+import styles from "../css/new-member.module.css";
 
 export default function NewMember() {
    const [name, setName] = useState("");
@@ -22,7 +23,7 @@ export default function NewMember() {
       
       // Send data to the server
       try {
-         const url = "https://my-json-server.typicode.com/manuelmillefiori/gym-app/members";
+         const url = import.meta.env.VITE_PATH_REQ + "/members";
          const response = await axios.post(url, newMember);
          
          // Redirect to /members

@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import axios from "axios";
-import styles from "../css/members.module.css"; // Importo il modulo CSS
+
+import styles from "../css/members.module.css";
 
 export default function Members() {
    // State to memorize members details
@@ -25,7 +26,7 @@ export default function Members() {
    // Every time location changes
    useEffect(() => {
       const fetchData = async () => {
-         const url = "https://my-json-server.typicode.com/manuelmillefiori/gym-app/members";
+         const url = import.meta.env.VITE_PATH_REQ + "/members";
 
          try {
             // Wait the response

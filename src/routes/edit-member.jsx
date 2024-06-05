@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import axios from "axios";
 
@@ -14,7 +14,7 @@ export default function EditMember() {
    useEffect(() => {
       const fetchData = async () => {
          // Compose the url
-         const url = "https://my-json-server.typicode.com/manuelmillefiori/gym-app/members/" + params.id;
+         const url = import.meta.env.VITE_PATH_REQ + "/members/" + params.id;
 
          try {
             const response = await axios.get(url);
@@ -61,7 +61,7 @@ export default function EditMember() {
             membershipType: editForm.membershipType.value,
          };
 
-         const url = "https://my-json-server.typicode.com/manuelmillefiori/gym-app/members/" + member.id;
+         const url = import.meta.env.VITE_PATH_REQ + "/members/" + member.id;
          const response = await axios.put(url, member);
          
          // Redirect to /members/:id

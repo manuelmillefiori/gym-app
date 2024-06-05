@@ -1,6 +1,7 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import axios from "axios";
+
 import styles from "../css/member-details.module.css";
 
 export default function MemberDetails() {
@@ -13,7 +14,7 @@ export default function MemberDetails() {
    // Obtain the member at every member id change
    useEffect(() => {
       const fetchData = async () => {
-         const url = "https://my-json-server.typicode.com/manuelmillefiori/gym-app/members/" + params.id;
+         const url = import.meta.env.VITE_PATH_REQ + "/members/" + params.id;
 
          try {
             const response = await axios.get(url);
@@ -28,7 +29,7 @@ export default function MemberDetails() {
 
    // Handle the delete of the member
    const handleDelete = async () => {
-      const url = "https://my-json-server.typicode.com/manuelmillefiori/gym-app/members/" + params.id;
+      const url = import.meta.env.VITE_PATH_REQ + "/members/" + params.id;
       try {
          // Request to delete
          await axios.delete(url);
