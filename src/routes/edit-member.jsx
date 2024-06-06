@@ -7,6 +7,14 @@ import styles from "../css/edit-member.module.css";
 export default function EditMember() {
    const params = useParams();
    const navigate = useNavigate();
+   const [member, setMember] = useState({
+      name: "",
+      surname: "",
+      email: "",
+      age: "",
+      membershipType: "",
+      picture: ""
+   });
 
    useEffect(() => {
       const fetchData = async () => {
@@ -14,15 +22,7 @@ export default function EditMember() {
 
          try {
             const response = await axios.get(url);
-            const member = response.data;
-            const editForm = document.getElementById("editForm");
-            editForm.name.value = member.name;
-            editForm.surname.value = member.surname;
-            editForm.email.value = member.email;
-            editForm.age.value = member.age;
-            editForm.membershipType.value = member.membershipType;
-            editForm.picture.value = member.picture; // Added line for picture
-
+            setMember(response.data);
          } catch (error) {
             console.error('Error:', error);
          }
@@ -31,27 +31,22 @@ export default function EditMember() {
       fetchData();
    }, [params.id]);
 
+   const handleChange = (e) => {
+      const { name, value } = e.target;
+      setMember(prevState => ({
+         ...prevState,
+         [name]: value
+      }));
+   };
+
    const handleSubmit = async (event) => {
       event.preventDefault();
 
       try {
-         const editForm = document.getElementById("editForm");
-
-         const member = {
-            id: params.id,
-            name: editForm.name.value,
-            surname: editForm.surname.value,
-            email: editForm.email.value,
-            age: editForm.age.value,
-            membershipType: editForm.membershipType.value,
-            picture: editForm.picture.value, // Added line for picture
-         };
-
-         const url = import.meta.env.VITE_PATH_REQ + "/members/" + member.id;
+         const url = import.meta.env.VITE_PATH_REQ + "/members/" + params.id;
          await axios.put(url, member);
-         
-         navigate("/members/" + member.id);
 
+         navigate("/members/" + member.id);
       } catch (error) {
          console.error('Error editing member:', error);
       }
@@ -62,17 +57,17 @@ export default function EditMember() {
          <h2 className={styles.titleForm}>Edit Member</h2>
          <form id="editForm" onSubmit={handleSubmit} className={styles.form}>
             <label>Name:</label>
-            <input name="name" type="text" required />
+            <input name="name" type="text" value={member.name} onChange={handleChange} required />
             <label>Surname:</label>
-            <input name="surname" type="text" required />
+            <input name="surname" type="text" value={member.surname} onChange={handleChange} required />
             <label>Email:</label>
-            <input name="email" type="email" required />
+            <input name="email" type="email" value={member.email} onChange={handleChange} required />
             <label>Age:</label>
-            <input name="age" type="number" required />
+            <input name="age" type="number" value={member.age} onChange={handleChange} required />
             <label>Membership Type:</label>
-            <input name="membershipType" type="text" required />
-            <label>Picture URL:</label> {/* Added label for picture */}
-            <input name="picture" type="text" required /> {/* Added input for picture */}
+            <input name="membershipType" type="text" value={member.membershipType} onChange={handleChange} required />
+            <label>Picture URL:</label>
+            <input name="picture" type="text" value={member.picture} onChange={handleChange} required />
             <button type="submit">Edit Member</button>
          </form>
       </div>
