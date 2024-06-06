@@ -31,7 +31,7 @@ h2 {
 }
 
 .navListItem:not(:last-child) {
-   border-bottom: 1px solid #444; /* Add border to create a line for all items except the last one */
+   border-bottom: 1px solid #444;
 }
 
 .navListItem a {

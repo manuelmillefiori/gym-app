@@ -23,6 +23,7 @@
 
 .memberList tbody tr {
    cursor: pointer;
+   border-bottom: 1px solid #cacaca;
 }
 
 .memberList tbody tr:hover {
