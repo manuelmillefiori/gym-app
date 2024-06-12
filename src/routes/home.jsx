@@ -29,6 +29,20 @@ export default function Home() {
                      Add Members
                   </NavLink>
                </li>
+               <li key="4" className={styles.navListItem}>
+                  <NavLink
+                  to="/courses"
+                  className={styles.memberLink}>
+                     Courses List
+                  </NavLink>
+               </li>
+               <li key="5" className={styles.navListItem}>
+                  <NavLink
+                  to="/courses/new"
+                  className={styles.memberLink}>
+                     Add Courses
+                  </NavLink>
+               </li>
             </ul>
          </div>
          <div className={styles.mainContent}>

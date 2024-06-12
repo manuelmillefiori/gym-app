@@ -10,6 +10,8 @@ import Members from "./routes/members";
 import MemberDetails from "./routes/member-details";
 import NewMember from "./routes/new-member";
 import EditMember from "./routes/edit-member";
+import Courses from "./routes/courses";
+import NewCourse from "./routes/new-course";
 
 const router = createBrowserRouter([
   {
@@ -36,7 +38,17 @@ const router = createBrowserRouter([
         // Edit member
         path: "/members/:id/edit",
         element: <EditMember />,
-      }
+      },
+      {
+        // Visualize courses
+        path: "/courses",
+        element: <Courses />,
+      },
+      {
+        // New course
+        path: "/courses/new",
+        element: <NewCourse />,
+      },
     ]
   },
 ]);

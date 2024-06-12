@@ -3,30 +3,30 @@
    margin: 2rem 0;
 }
 
-.membersList {
-   width: 30%;
+.coursesList {
+   width: 40%;
    margin: 2rem auto;
    border-collapse: collapse;
 }
 
-.membersList thead th {
+.coursesList thead th {
    color: #fff;
    background-color: #333;
    text-align: center;
    padding: 7px;
 }
 
-.membersList tbody td {
+.coursesList tbody td {
    text-align: center;
    padding: 7px;
 }
 
-.membersList tbody tr {
+.coursesList tbody tr {
    cursor: pointer;
    border-bottom: 1px solid #cacaca;
 }
 
-.membersList tbody tr:hover {
+.coursesList tbody tr:hover {
    background-color: rgb(221, 221, 221);
 }
  

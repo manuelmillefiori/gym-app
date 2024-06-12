@@ -1,15 +1,6 @@
 {
   "members": [
     {
-      "id": "3",
-      "name": "Marco",
-      "surname": "Bianchi",
-      "email": "anna@example.com",
-      "age": "27",
-      "membershipType": "Basic",
-      "picture": "https://img.freepik.com/foto-gratis/worldface-hombre-espanol-fondo-blanco_53876-139733.jpg"
-    },
-    {
       "id": "de3b",
       "name": "Manuel",
       "surname": "Millefiori",
@@ -26,6 +17,33 @@
       "age": "19",
       "membershipType": "Premium",
       "picture": "https://media.licdn.com/dms/image/D4D03AQGfj5iUXdBVbQ/profile-displayphoto-shrink_800_800/0/1706004671119?e=1723075200&v=beta&t=lodHYQsve9mR9Gua5aRy3ZdKnKYkq1spc0C0UiEQYFE"
+    },
+    {
+      "id": "f747",
+      "name": "Marco",
+      "surname": "Federici",
+      "email": "marco@gmail.com",
+      "age": "20",
+      "membershipType": "Basic",
+      "picture": "https://media.licdn.com/dms/image/D4D03AQGfj5iUXdBVbQ/profile-displayphoto-shrink_800_800/0/1706004671119?e=1723075200&v=beta&t=lodHYQsve9mR9Gua5aRy3ZdKnKYkq1spc0C0UiEQYFE"
+    }
+  ],
+  "courses": [
+    {
+      "id": "7d83",
+      "title": "corsoooo",
+      "description": "dawdaw",
+      "instructorName": "geppo",
+      "instructorSurname": "almare",
+      "schedule": "2024-07-04"
+    },
+    {
+      "id": "5836",
+      "title": "Ginnastica",
+      "description": "Ginnastica Ritmica",
+      "instructorName": "Marco",
+      "instructorSurname": "Aurelio",
+      "schedule": "2024-06-12"
     }
   ],
   "profile": {
