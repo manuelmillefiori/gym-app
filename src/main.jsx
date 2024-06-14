@@ -11,6 +11,7 @@ import MemberDetails from "./routes/member-details";
 import NewMember from "./routes/new-member";
 import EditMember from "./routes/edit-member";
 import Courses from "./routes/courses";
+import CourseDetails from "./routes/course-details";
 import NewCourse from "./routes/new-course";
 
 const router = createBrowserRouter([
@@ -25,7 +26,7 @@ const router = createBrowserRouter([
         element: <Members />,
       },
       {
-        // Members details
+        // Member details
         path: "/members/:id",
         element: <MemberDetails />,
       },
@@ -43,6 +44,11 @@ const router = createBrowserRouter([
         // Visualize courses
         path: "/courses",
         element: <Courses />,
+      },
+      {
+        // Course details
+        path: "/courses/:id",
+        element: <CourseDetails />,
       },
       {
         // New course

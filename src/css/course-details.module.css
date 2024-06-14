@@ -1,0 +1,73 @@
+.container {
+   padding: 20px;
+   max-width: 40rem;
+   margin: auto;
+   text-align: center;
+   min-height: 100vh;
+}
+
+.courseInfo {
+   padding: 1.25rem;
+   background-color: #f9f9f9;
+   border-radius: 0.5rem;
+   box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1);
+   margin: 0 auto;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin-top: 0.5rem;
+}
+
+.courseInfo p {
+   font-size: 16px;
+   margin-bottom: 8px;
+   text-align: left;
+}
+
+.buttonContainer {
+   margin-top: 20px;
+   display: flex;
+   justify-content: center;
+}
+
+.deleteButton, .editButton {
+   padding: 0.5rem 0.5rem;
+   width: 10rem;
+   border: none;
+   cursor: pointer;
+   margin: 0.5rem;
+}
+
+.deleteButton {
+   background-color: red;
+   color: white;
+}
+
+.editButton {
+   background-color: blue;
+   color: white;
+}
+
+.deleteButton:hover {
+   background-color: rgb(172, 0, 0);
+}
+
+.editButton:hover {
+   background-color: rgb(0, 0, 168);
+}
+
+.titleForm {
+   text-align: center;
+   margin-bottom: 10px;
+}
+
+.detailsContainer {
+   display: flex;
+   align-items: flex-start;
+   justify-content: flex-start;
+   width: 100%;
+}
+
+.courseData {
+   flex-grow: 1;
+}
