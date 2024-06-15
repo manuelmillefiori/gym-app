@@ -13,6 +13,7 @@ import EditMember from "./routes/edit-member";
 import Courses from "./routes/courses";
 import CourseDetails from "./routes/course-details";
 import NewCourse from "./routes/new-course";
+import EditCourse from "./routes/edit-course";
 
 const router = createBrowserRouter([
   {
@@ -54,6 +55,11 @@ const router = createBrowserRouter([
         // New course
         path: "/courses/new",
         element: <NewCourse />,
+      },
+      {
+        // Edit course
+        path: "/courses/:id/edit",
+        element: <EditCourse />,
       },
     ]
   },
