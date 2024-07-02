@@ -17,7 +17,7 @@ export default function EditCourse() {
 
    useEffect(() => {
       const fetchData = async () => {
-         const url = import.meta.env.VITE_PATH_REQ + "/courses/" + params.id;
+         const url = import.meta.env.VITE_PATH_REQ + "/courses/" + params._id;
 
          try {
             const response = await axios.get(url);
@@ -28,7 +28,7 @@ export default function EditCourse() {
       };
 
       fetchData();
-   }, [params.id]);
+   }, [params._id]);
 
    const handleChange = (e) => {
       const { name, value } = e.target;
@@ -42,10 +42,10 @@ export default function EditCourse() {
       event.preventDefault();
 
       try {
-         const url = import.meta.env.VITE_PATH_REQ + "/courses/" + params.id;
+         const url = import.meta.env.VITE_PATH_REQ + "/courses/" + params._id + "/edit";
          await axios.put(url, course);
 
-         navigate("/courses/" + course.id);
+         navigate("/courses/" + course._id);
       } catch (error) {
          console.error('Error editing course:', error);
       }

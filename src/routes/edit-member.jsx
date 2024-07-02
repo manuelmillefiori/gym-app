@@ -18,7 +18,7 @@ export default function EditMember() {
 
    useEffect(() => {
       const fetchData = async () => {
-         const url = import.meta.env.VITE_PATH_REQ + "/members/" + params.id;
+         const url = import.meta.env.VITE_PATH_REQ + "/members/" + params._id;
 
          try {
             const response = await axios.get(url);
@@ -29,7 +29,7 @@ export default function EditMember() {
       };
 
       fetchData();
-   }, [params.id]);
+   }, [params._id]);
 
    const handleChange = (e) => {
       const { name, value } = e.target;
@@ -43,10 +43,10 @@ export default function EditMember() {
       event.preventDefault();
 
       try {
-         const url = import.meta.env.VITE_PATH_REQ + "/members/" + params.id;
+         const url = import.meta.env.VITE_PATH_REQ + "/members/" + params._id + "/edit";
          await axios.put(url, member);
 
-         navigate("/members/" + member.id);
+         navigate("/members/" + member._id);
       } catch (error) {
          console.error('Error editing member:', error);
       }

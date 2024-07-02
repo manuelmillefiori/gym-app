@@ -50,7 +50,7 @@ function MemberList({ members, setLastRow, lastRow }) {
 
    // Function to manage the clicks from a single row
    function handleRowClick(index) {
-      navigate("/members/" + members[index].id + "/");
+      navigate("/members/" + members[index]._id + "/");
    }
    
 

@@ -14,7 +14,7 @@ export default function CourseDetails() {
    // Obtain the course at every course id change
    useEffect(() => {
       const fetchData = async () => {
-         const url = import.meta.env.VITE_PATH_REQ + "/courses/" + params.id;
+         const url = import.meta.env.VITE_PATH_REQ + "/courses/" + params._id;
 
          try {
             const response = await axios.get(url);
@@ -25,11 +25,11 @@ export default function CourseDetails() {
       };
 
       fetchData();
-   }, [params.id]);
+   }, [params._id]);
 
    // Handle the delete of the course
    const handleDelete = async () => {
-      const url = import.meta.env.VITE_PATH_REQ + "/courses/" + params.id;
+      const url = import.meta.env.VITE_PATH_REQ + "/courses/" + params._id;
       try {
          // Request to delete
          await axios.delete(url);
@@ -42,7 +42,7 @@ export default function CourseDetails() {
    };
 
    const handleEdit = () => {
-      navigate("/courses/" + course.id + "/edit")
+      navigate("/courses/" + course._id + "/edit")
    };
 
    return (

@@ -69,7 +69,7 @@ export default function NewCourse() {
                onChange={(e) => setSchedule(e.target.value)}
                required
             />
-            <button type="submit">Add Member</button>
+            <button type="submit">Add Course</button>
          </form>
       </div>
    );

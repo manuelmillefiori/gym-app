@@ -50,7 +50,7 @@ function CoursesList({ courses, setLastRow, lastRow }) {
 
    // Function to manage the clicks from a single row
    function handleRowClick(index) {
-      navigate("/courses/" + courses[index].id + "/");
+      navigate("/courses/" + courses[index]._id + "/");
    }
    
 

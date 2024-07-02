@@ -14,7 +14,7 @@ export default function MemberDetails() {
    // Obtain the member at every member id change
    useEffect(() => {
       const fetchData = async () => {
-         const url = import.meta.env.VITE_PATH_REQ + "/members/" + params.id;
+         const url = import.meta.env.VITE_PATH_REQ + "/members/" + params._id;
 
          try {
             const response = await axios.get(url);
@@ -25,11 +25,11 @@ export default function MemberDetails() {
       };
 
       fetchData();
-   }, [params.id]);
+   }, [params._id]);
 
    // Handle the delete of the member
    const handleDelete = async () => {
-      const url = import.meta.env.VITE_PATH_REQ + "/members/" + params.id;
+      const url = import.meta.env.VITE_PATH_REQ + "/members/" + params._id;
       try {
          // Request to delete
          await axios.delete(url);
@@ -42,7 +42,7 @@ export default function MemberDetails() {
    };
 
    const handleEdit = () => {
-      navigate("/members/" + member.id + "/edit")
+      navigate("/members/" + member._id + "/edit")
    };
 
    return (

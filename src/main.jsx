@@ -28,7 +28,7 @@ const router = createBrowserRouter([
       },
       {
         // Member details
-        path: "/members/:id",
+        path: "/members/:_id",
         element: <MemberDetails />,
       },
       {
@@ -38,7 +38,7 @@ const router = createBrowserRouter([
       },
       {
         // Edit member
-        path: "/members/:id/edit",
+        path: "/members/:_id/edit",
         element: <EditMember />,
       },
       {
@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       },
       {
         // Course details
-        path: "/courses/:id",
+        path: "/courses/:_id",
         element: <CourseDetails />,
       },
       {
@@ -58,7 +58,7 @@ const router = createBrowserRouter([
       },
       {
         // Edit course
-        path: "/courses/:id/edit",
+        path: "/courses/:_id/edit",
         element: <EditCourse />,
       },
     ]
