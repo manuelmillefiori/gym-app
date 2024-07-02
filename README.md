@@ -1,9 +1,6 @@
 # Gym App With React
 
-Start the JSON server to simulate a DB:
-```
-npm run json-server
-```
+Start the API Server!
 
 And then start the React Project:
 ```
