@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 import styles from "../css/new-member.module.css";
+
+import { addMember } from "../services/api";
 
 export default function NewMember() {
    const [name, setName] = useState("");
@@ -22,11 +23,12 @@ export default function NewMember() {
       const newMember = { name, surname, email, age, membershipType, picture }; // Included picture
       
       try {
-         const url = import.meta.env.VITE_PATH_REQ + "/members";
-         const response = await axios.post(url, newMember);
+         // Add a member
+         await addMember(newMember);
          
          navigate("/members");
       } catch (error) {
+         // Print the error
          console.error('Error adding member:', error);
       }
    };

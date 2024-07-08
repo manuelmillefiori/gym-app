@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
 
 import styles from "../css/edit-member.module.css";
+
+import { fetchMember, updateMember } from "../services/api";
 
 export default function EditMember() {
    const params = useParams();
@@ -17,18 +18,17 @@ export default function EditMember() {
    });
 
    useEffect(() => {
-      const fetchData = async () => {
-         const url = import.meta.env.VITE_PATH_REQ + "/members/" + params._id;
-
+      const loadMember = async () => {
          try {
-            const response = await axios.get(url);
-            setMember(response.data);
+            // Fetch the member
+            const data = await fetchMember(params._id);
+            setMember(data);
          } catch (error) {
-            console.error('Error:', error);
+            console.error('Error: ', error);
          }
       };
 
-      fetchData();
+      loadMember();
    }, [params._id]);
 
    const handleChange = (e) => {
@@ -43,12 +43,12 @@ export default function EditMember() {
       event.preventDefault();
 
       try {
-         const url = import.meta.env.VITE_PATH_REQ + "/members/" + params._id + "/edit";
-         await axios.put(url, member);
+         // Update the member
+         await updateMember(params._id, member);
 
-         navigate("/members/" + member._id);
+         navigate("/members/" + params._id);
       } catch (error) {
-         console.error('Error editing member:', error);
+         console.error('Error editing member: ', error);
       }
    };
 

@@ -6,6 +6,7 @@
 .membersList {
    width: 30%;
    margin: 2rem auto;
+   margin-top: 0.3rem;
    border-collapse: collapse;
 }
 
@@ -28,5 +29,17 @@
 
 .membersList tbody tr:hover {
    background-color: rgb(221, 221, 221);
+}
+
+.searchField {
+   margin: 2rem auto;
+   margin-top: 0rem;
+   margin-bottom: 0rem;
+   width: 30%;
+   border: 2px solid rgb(155, 155, 155);
+}
+
+.membersBox {
+   text-align: center;
 }
  

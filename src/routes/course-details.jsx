@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import axios from "axios";
 
 import styles from "../css/course-details.module.css";
+
+import { fetchCourse, delCourse } from "../services/api";
 
 export default function CourseDetails() {
    const params = useParams();
@@ -11,33 +12,45 @@ export default function CourseDetails() {
    // Handle to navigate
    const navigate = useNavigate();
 
+   /**
+    * Function to format a ISO 8601 date in
+    * a dd/mm/yyyy date
+    */
+   function formatDate(isoDate) {
+      const date = new Date(isoDate);
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
+
+      return `${day}/${month}/${year}`;
+   }
+
    // Obtain the course at every course id change
    useEffect(() => {
-      const fetchData = async () => {
-         const url = import.meta.env.VITE_PATH_REQ + "/courses/" + params._id;
-
+      const loadCourse = async () => {
          try {
-            const response = await axios.get(url);
-            setCourse(response.data);
+            // Fetch the course data
+            const data = await fetchCourse(params._id);
+
+            setCourse(data);
          } catch (error) {
-            console.error('Error:', error);
+            console.error("Error: ", error);
          }
       };
 
-      fetchData();
+      loadCourse();
    }, [params._id]);
 
    // Handle the delete of the course
    const handleDelete = async () => {
-      const url = import.meta.env.VITE_PATH_REQ + "/courses/" + params._id;
       try {
-         // Request to delete
-         await axios.delete(url);
+         // Request to delete the course
+         await delCourse(params._id);
 
          // Redirect to the courses main page
          navigate("/courses");
       } catch (error) {
-         console.error('Error deleting course:', error);
+         console.error("Error deleting course: ", error);
       }
    };
 
@@ -54,7 +67,7 @@ export default function CourseDetails() {
                   <div className={styles.courseData}>
                      <p><b>Instructor:</b> {course.instructorName + " " + course.instructorSurname}</p>
                      <p><b>Description:</b> {course.description}</p>
-                     <p><b>Schedule:</b> {course.schedule}</p>
+                     <p><b>Schedule:</b> {formatDate(course.schedule)}</p>
                   </div>
                </div>
             </div>

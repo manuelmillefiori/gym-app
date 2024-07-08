@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 
 import styles from "../css/new-course.module.css";
+
+import { addCourse } from "../services/api";
 
 export default function NewCourse() {
    const [title, setTitle] = useState("");
@@ -21,12 +22,13 @@ export default function NewCourse() {
       const newCourse = { title, description, instructorName, instructorSurname, schedule };
       
       try {
-         const url = import.meta.env.VITE_PATH_REQ + "/courses";
-         const response = await axios.post(url, newCourse);
+         // Add a course
+         await addCourse(newCourse);
          
          navigate("/courses");
       } catch (error) {
-         console.error('Error adding member:', error);
+         // Print the error
+         console.error('Error adding course:', error);
       }
    };
 

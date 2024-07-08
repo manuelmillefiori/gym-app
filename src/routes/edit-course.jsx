@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
-import axios from "axios";
 
 import styles from "../css/edit-course.module.css";
+
+import { fetchCourse, updateCourse } from "../services/api";
 
 export default function EditCourse() {
    const params = useParams();
@@ -15,19 +16,31 @@ export default function EditCourse() {
       schedule: "",
    });
 
-   useEffect(() => {
-      const fetchData = async () => {
-         const url = import.meta.env.VITE_PATH_REQ + "/courses/" + params._id;
+   /**
+    * Function to format a ISO 8601 date in
+    * a yyyy-mm-dd date
+    */
+   function formatDate(isoDate) {
+      const date = new Date(isoDate);
+      const day = String(date.getDate()).padStart(2, '0');
+      const month = String(date.getMonth() + 1).padStart(2, '0');
+      const year = date.getFullYear();
 
+      return `${year}-${month}-${day}`;
+   }
+
+   useEffect(() => {
+      const loadCourse = async () => {
          try {
-            const response = await axios.get(url);
-            setCourse(response.data);
+            // Fetch the course
+            const data = await fetchCourse(params._id);
+            setCourse(data);
          } catch (error) {
-            console.error('Error:', error);
+            console.error('Error: ', error);
          }
       };
 
-      fetchData();
+      loadCourse();
    }, [params._id]);
 
    const handleChange = (e) => {
@@ -42,12 +55,12 @@ export default function EditCourse() {
       event.preventDefault();
 
       try {
-         const url = import.meta.env.VITE_PATH_REQ + "/courses/" + params._id + "/edit";
-         await axios.put(url, course);
+         // Update the course
+         await updateCourse(params._id, course);
 
-         navigate("/courses/" + course._id);
+         navigate("/courses/" + params._id);
       } catch (error) {
-         console.error('Error editing course:', error);
+         console.error('Error editing course: ', error);
       }
    };
 
@@ -64,7 +77,7 @@ export default function EditCourse() {
             <label>Instructor Surname:</label>
             <input name="instructorSurname" type="text" value={course.instructorSurname} onChange={handleChange} required />
             <label>Schedule:</label>
-            <input name="schedule" type="date" value={course.schedule} onChange={handleChange} required />
+            <input name="schedule" type="date" value={formatDate(course.schedule)} onChange={handleChange} required />
             <button type="submit">Edit Course</button>
          </form>
       </div>

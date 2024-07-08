@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import axios from "axios";
 
 import styles from "../css/courses.module.css";
+
+import { fetchCourses } from "../services/api";
 
 export default function Courses() {
    // State to memorize courses details
@@ -14,23 +15,18 @@ export default function Courses() {
    // Get data from server
    // Every time location changes
    useEffect(() => {
-      const fetchData = async () => {
-         const url = import.meta.env.VITE_PATH_REQ + "/courses";
-
+      const loadCourses = async () => {
          try {
-            // Wait the response
-            const response = await axios.get(url);
-
-            // Set all the courses obtained
-            setCourses(response.data);
+            // Fetch the courses
+            const data = await fetchCourses();
+            setCourses(data);
          } catch (error) {
-            // DEBUG
             // Print the error
             console.error('Error:', error);
          }
       };
 
-      fetchData();
+      loadCourses();
    }, [location]);
 
 
