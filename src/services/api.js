@@ -19,6 +19,42 @@ export const fetchMembers = async () => {
    }
 };
 
+// Function to fetch the members
+// with a filter
+export const filterMembers = async (search) => {
+   const url = reqUri + "/members?search=" + search;
+
+   try {
+      // Wait the response
+      const response = await axios.get(url);
+
+      // Obtain all the members
+      // null or undefined ret an empty array
+      return response.data || [];
+   } catch (error) {
+      // Throw the error
+      throw error;
+   }
+};
+
+// Function to fetch the courses
+// with a filter
+export const filterCourses = async (search) => {
+   const url = reqUri + "/courses?search=" + search;
+
+   try {
+      // Wait the response
+      const response = await axios.get(url);
+
+      // Obtain all the courses
+      // null or undefined ret an empty array
+      return response.data || [];
+   } catch (error) {
+      // Throw the error
+      throw error;
+   }
+};
+
 // Function to fetch the courses
 export const fetchCourses = async () => {
    const url = reqUri + "/courses";

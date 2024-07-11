@@ -3,7 +3,7 @@ import { useNavigate, useLocation } from "react-router-dom";
 
 import styles from "../css/members.module.css";
 
-import { fetchMembers } from "../services/api";
+import { fetchMembers, filterMembers } from "../services/api";
 
 export default function Members() {
    // State to memorize members details
@@ -34,13 +34,13 @@ export default function Members() {
       <div>
          <h2 className={styles.titleForm}>Members List</h2>
          {/* Componente per visualizzare la lista delle membere */}
-         <MemberList members={members} />
+         <MemberList members={members} setMembers={setMembers} />
       </div>
    );
 }
 
 // Componente per visualizzare la lista delle membere in una tabella
-function MemberList({ members, setLastRow, lastRow }) {
+function MemberList({ members, setMembers, setLastRow, lastRow }) {
    // Handle to navigate
    const navigate = useNavigate();
 
@@ -50,10 +50,22 @@ function MemberList({ members, setLastRow, lastRow }) {
    }
 
    // Function to filter the members list
-   function filterSearch(search) {
-      // TODO:
-      // Implementare la richiesta da inviare al server
-      console.log(search)
+   async function filterSearch(search) {
+      // Verifico che il campo non sia vuota
+      // per poter filtrare
+      if (search != null) {
+         // Trim della stringa
+         search = search.trim();
+
+         try {
+            // Ottengo la lista dei membri filtrata
+            // e la aggiorno
+            const data = await filterMembers(search);
+            setMembers(data);
+         } catch (error) {
+            console.error("Error filtering members: ", error);
+         }
+      }
    }
    
 
